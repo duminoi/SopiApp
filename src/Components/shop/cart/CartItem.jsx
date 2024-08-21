@@ -15,7 +15,7 @@ export default function CartItem({ name, price, quantity, order }) {
         </td>
         <td className="px-4 py-3 text-sm">{order}</td>
         <td className="px-4 py-3 text-sm">{quantity}</td>
-        <td className="px-4 py-3 text-sm">{price * quantity}</td>
+        <td className="px-4 py-3 text-sm">{price * order}</td>
       </tr>
     </>
   );

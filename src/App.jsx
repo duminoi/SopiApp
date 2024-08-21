@@ -13,7 +13,7 @@ export default function App() {
   const [apiKey, setApiKey] = useState("");
   const [toastContent, setToast] = useState("idle");
   const [productList, setProductList] = useState([]);
-  let orderRef = useRef(1);
+
   const [cart, setCart] = useState(() => {
     // Lấy dữ liệu từ localStorage và kiểm tra trước khi parse
     const savedCart = localStorage.getItem("cart");
@@ -60,7 +60,6 @@ export default function App() {
         productList: productList,
         cart: cart,
         toastContent: toastContent,
-        orderRef: orderRef,
         setToast: setToast,
         onSubmit: handleSubmit,
         setProductList: setProductList,

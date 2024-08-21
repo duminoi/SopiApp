@@ -6,25 +6,24 @@ import { useRef } from "react";
 
 export default function ListItem({ _id: id, name, image, price }) {
   //   let orderRef = useRef(1);
-  const { cart, setCart, productList, setToast, orderRef } =
-    useContext(AppContext);
-  let check = false;
+  const { cart, setCart, productList, setToast } = useContext(AppContext);
+
   const handleClick = (e) => {
     const idList = e.target.dataset.id;
     const item = productList.find((item) => {
       return item._id == idList;
     });
-
-    const existingItemIndex = cart.findIndex((i) => i._id === item._id);
-
-    if (existingItemIndex > -1) {
-      cart[existingItemIndex].order += 1;
+    const itemIndex = cart.findIndex(({ _id }) => {
+      return _id === idList;
+    });
+    console.log(itemIndex);
+    if (itemIndex > -1) {
+      cart[itemIndex].order += 1;
       setCart([...cart]);
     } else {
       item.order = 1;
       setCart([...cart, item]);
     }
-
     setToast("Thêm vào giỏ hàng thành công ^^");
   };
 
